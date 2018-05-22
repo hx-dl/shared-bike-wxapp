@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/map/map",
+    "pages/info/info",
+    "pages/register/register"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "仿青桔单车",
+    "navigationBarTextStyle":"black"
+  }
+}
