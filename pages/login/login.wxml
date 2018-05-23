@@ -1,0 +1,4 @@
+<!--pages/login/login.wxml-->
+<view class='container'>
+  <input ></input>
+</view>

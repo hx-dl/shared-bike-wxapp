@@ -2,7 +2,8 @@
   "pages":[
     "pages/map/map",
     "pages/info/info",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/login/login"
   ],
   "window":{
     "backgroundTextStyle":"light",
