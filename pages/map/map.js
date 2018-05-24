@@ -9,7 +9,78 @@ Page({
     controls:[],
     windowHeight:0,
     windowWidth:0,
-    markers:[],
+    markers: [{
+      "id": 0,
+      "title": "去这里",
+      "iconPath": "/images/markers.png",
+      "latitude": 28.714621,
+      "longitude": 115.82749,
+      "width": 42,
+      "height": 26
+    },
+    {
+      "id": 1,
+      "title": "去这里",
+      "iconPath": "/images/markers.png",
+      "latitude": 28.715375,
+      "longitude": 115.828924,
+      "width": 42,
+      "height": 26
+    },
+    {
+      "id": 2,
+      "title": "去这里",
+      "iconPath": "/images/markers.png",
+      "latitude": 28.711442,
+      "longitude": 115.827014,
+      "width": 42,
+      "height": 26
+    },
+    {
+      "id": 3,
+      "title": "去这里",
+      "iconPath": "/images/markers.png",
+      "latitude": 28.71259,
+      "longitude": 115.828344,
+      "width": 42,
+      "height": 26
+    },
+    {
+      "id": 4,
+      "title": "去这里",
+      "iconPath": "/images/markers.png",
+      "latitude": 28.717671,
+      "longitude": 115.825963,
+      "width": 42,
+      "height": 26
+    },
+    {
+      "id": 5,
+      "title": "去这里",
+      "iconPath": "/images/markers.png",
+      "latitude": 28.731232,
+      "longitude": 115.832978,
+      "width": 42,
+      "height": 26
+    },
+    {
+      "id": 6,
+      "title": "去这里",
+      "iconPath": "/images/markers.png",
+      "latitude": 28.724559,
+      "longitude": 115.834195,
+      "width": 42,
+      "height": 26
+    },
+    {
+      "id": 7,
+      "title": "去这里",
+      "iconPath": "/images/markers.png",
+      "latitude": 28.682892,
+      "longitude": 115.858198,
+      "width": 42,
+      "height": 26
+    }],
     scale:16
   },
   onLoad(){
