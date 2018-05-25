@@ -2,6 +2,7 @@
   "pages":[
     "pages/map/map",
     "pages/info/info",
+    "pages/my/my",
     "pages/register/register",
     "pages/login/login"
   ],

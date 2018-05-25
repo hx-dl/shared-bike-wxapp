@@ -4,8 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    longitude: 120.128330,
-    latitude: 30.222100,
+    longitude: 0,
+    latitude: 0,
     controls:[],
     windowHeight:0,
     windowWidth:0,
@@ -85,7 +85,7 @@ Page({
   },
   onLoad(){
     wx.getLocation({
-      success:(res) => {
+      success: (res) => {
         let longitude = res.longitude;
         let latitude = res.latitude;
         console.log(res);
@@ -95,6 +95,7 @@ Page({
         })
       },
     })
+    //获取设备信息，初始化地图控件
     wx.getSystemInfo({
       success: (res) => {
         console.log(res)
@@ -145,17 +146,27 @@ Page({
                 left: 8,
                 top: 8
               }
+            },
+            {
+              id: 5,
+              iconPath: '/images/消息.png',
+              position: {
+                width: 40,
+                height: 40,
+                left: windowWidth - 50,
+                top: windowHeight - 255
+              },
+              clickable: true
             }
           ]
         })
       },
     })
-    
   },
   onReady(){
     // 创建map上下文  保存map信息的对象
     this.mapCtx = wx.createMapContext('myMap');
-    // console.log(this.mapCtx)
+    console.log(this.mapCtx)
   },
   unlock(){
     var regstatus = app.globalData.regstatus;
@@ -172,29 +183,40 @@ Page({
           }
         }
       })
-      
     }else{
-      // 待完成
-      } 
+      // 扫码或者相册
+      wx.scanCode({
+        success: (res) => {
+          onlyFromCamera: true,
+          console.log(res)
+        }
+      })
+    } 
   },
   controltap(e){
-    // console.log(e)
+    console.log(e)
     let cid = e.controlId;
-    // console.log(cid);
+    console.log(cid);
     switch (cid){
       case 1: {
         this.mapCtx.moveToLocation();
         setTimeout(()=>{
           this.setData({
-            scale: 16
+            scale: 16,
           })
-        },1000)   
+        },1000)
+        this.mapCtx.moveToLocation();           
       };break;
       case 3: {
         wx.navigateTo({
+          url: '../my/my',
+        })
+      }; break;
+      case 5: {
+        wx.navigateTo({
           url: '../info/info',
         })
-      }
+      }; break;
     }
   }
 })

@@ -1,0 +1,52 @@
+<!--pages/my/my.wxml-->
+<view class='cells-info'>
+    <image class="thumb" src='{{userInfo.avatarUrl}}'></image>
+  <view class='cell__name'>
+    <open-data lang="zh_CN" type="userNickName"></open-data>
+  </view>
+  <view class='cell__account'>147****6767</view>
+</view>
+<view class="cells">
+  <navigator  url="" class='cell cell_access' hover-class='cell_active'>
+    <view class='cell__hd'>
+      <image src='/images/行程.png'></image>
+    </view>
+    <view class='cell__bd'>
+      <text class='cell__bd main'>行程</text>
+      <text class='cell__bd content'>最近三个月骑行{{0}}次</text>
+    </view>
+    <view class="cell__ft cell__ft_in-access"></view>
+  </navigator>
+  <navigator url="" class='cell cell_access' hover-class='cell_active'>
+    <view class='cell__hd'>
+      <image src='/images/优惠券.png'></image>
+    </view>
+    <view class='cell__bd'>
+      <text class='cell__bd main'>优惠券</text>
+      <text class='cell__bd content'>展示您拥有的优惠卷</text>
+    </view>
+    <view class="cell__ft cell__ft_in-access"></view>
+  </navigator>
+  <navigator url="" class='cell cell_access' hover-class='cell_active'>
+    <view class='cell__hd'>
+      <image src='/images/卡包.png'></image>
+    </view>
+    <view class='cell__bd'>
+      <text class='cell__bd main'>单车月卡</text>
+      <text class='cell__bd content'>{{0}}天可以用单车月卡</text>
+    </view>
+    <view class="cell__ft cell__ft_in-access"></view>
+  </navigator>
+  <navigator url="" class='cell cell_access' hover-class='cell_active'>
+    <view class='cell__hd'>
+      <image src='/images/提示.png'></image>
+    </view>
+    <view class='cell__bd'>
+      <text class='cell__bd main'>法律条款及隐私政策</text>
+      <text class='cell__bd content'>青桔单车服务协议、小蓝单车服务协议、共享单车平台服务协议</text>
+    </view>
+    <view class="cell__ft cell__ft_in-access"></view>
+  </navigator>
+</view>
+
+<button class="logout">退出登录</button>

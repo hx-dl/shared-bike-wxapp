@@ -1,5 +1,8 @@
 //app.js
 App({
+  onLoad(){
+    
+  },
   onLaunch () {
  
     wx.showLoading({
@@ -30,6 +33,6 @@ App({
   globalData: {
     userInfo: null,
     // 注册/登录状态
-    regstatus:0
+    regstatus:1
   }
 })
