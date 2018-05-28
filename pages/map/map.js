@@ -106,7 +106,7 @@ Page({
             {
               //定位控件
               id: 1,
-              iconPath: '/images/定位.png',
+              iconPath: '/images/position.png',
               position: {
                 width: 40,
                 height: 40,
@@ -118,7 +118,7 @@ Page({
             {
               //中心坐标
               id: 2,
-              iconPath: '/images/中心.png',
+              iconPath: '/images/center.png',
               position: {
                 width: 80,
                 height: 60,
@@ -128,7 +128,7 @@ Page({
             },
             {
               id: 3,
-              iconPath: '/images/个人.png',
+              iconPath: '/images/personal.png',
               position: {
                 width: 40,
                 height: 40,
@@ -139,7 +139,7 @@ Page({
             },
             {
               id: 4,
-              iconPath: '/images/横幅.png',
+              iconPath: '/images/banner.png',
               position: {
                 width: windowWidth-16,
                 height: 58,
@@ -149,7 +149,7 @@ Page({
             },
             {
               id: 5,
-              iconPath: '/images/消息.png',
+              iconPath: '/images/info.png',
               position: {
                 width: 40,
                 height: 40,
