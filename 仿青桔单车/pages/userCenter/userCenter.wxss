@@ -1,0 +1,84 @@
+.userInfo {
+  height: 323rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  margin-bottom: 12rpx;
+  background: #fff; 
+}
+.userInfo .user-head {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
+}
+.userInfo .user-name {
+  margin: 11rpx 0;
+  font-size: 36rpx;
+  color: #333;
+}
+.userInfo .user-phone {
+  color: #666;
+  font-size: 24rpx;
+}
+
+
+.other-info-list {
+  background: #fff;
+  color:#333;
+  margin-bottom: 20rpx;
+}
+.other-info-list .list-item{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 136rpx;
+  border-bottom: 1rpx solid rgba(0, 0, 0, .1)
+}
+.other-info-list .list-item .left{
+  width: 32rpx;
+  height: 32rpx;
+  margin: 0 21rpx 30rpx 32rpx;
+}
+.other-info-list .list-item .text-list {
+  flex: 1;
+}
+.other-info-list .list-item .text-list .text-hd{
+  font-size: 32rpx;
+}
+.other-info-list .list-item .text-list .text-bd{
+  font-size: 20rpx;
+  color: #999;
+}
+.other-info-list .list-item .text-list .text-bd text {
+  color:#fc9153;
+}
+.other-info-list .list-item .right {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 39rpx;
+}
+
+.layout-btn{
+  height: 100rpx;
+  background: #fff;
+  display: flex;
+  justify-content: center; 
+  align-items: center;  
+  color:#fc9153;
+  font-size:28rpx;
+}
+
+.fix-footer{
+  font-size: 20rpx;
+  color: #666;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 20rpx;
+}
+
+
+
+

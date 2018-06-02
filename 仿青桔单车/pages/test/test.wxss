@@ -1,0 +1,109 @@
+.myRecords {
+    padding: 0 20rpx;
+}
+
+.circle {
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 100%;
+}
+
+.blue {
+    background: #3cbca3;
+}
+
+.or-color {
+    background: #fc9153;
+}
+
+.text-or {
+    color: #fc9153;
+    font-size: 28rpx;
+}
+
+.text-gr {
+    color: #999;
+    font-size: 28rpx;
+}
+
+.record-item {
+    font-size: 28rpx;
+    background: #fff;
+    border-radius: 4rpx;
+    box-shadow: 0 2rpx 8rpx 0 rgba(0,0,0,.08);
+}
+
+.icon_right {
+    width: 24rpx;
+    height: 24rpx;
+}
+
+.finish-intro {
+    margin: 20rpx 0;
+}
+
+.record-item {
+    margin-bottom: 20rpx;
+}
+
+.record-item-t {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100rpx;
+    padding: 0 31rpx;
+}
+
+.record-item-t view {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.record-item-t view:first-child view {
+    color: #7f7f7f;
+    border-radius: 2rpx;
+    width: 64rpx;
+    height: 32rpx;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    border: 1rpx solid #999;
+    margin-left: 10rpx;
+    font-size: 25rpx;
+}
+
+.record-det {
+    padding: 0 31rpx 18rpx;
+}
+
+.record-det>view {
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    color: #666;
+    margin-bottom: 14rpx;
+}
+
+.record-det>view .circle {
+    margin-right: 24rpx;
+}
+
+.no_coupon {
+    width: 252rpx;
+    height: 252rpx;
+}
+
+.no_coupon_text {
+    font-size: 28rpx;
+    color: #666;
+    margin-top: 26rpx;
+}
+
+.no_coupon_wrap {
+    padding-top: 332rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

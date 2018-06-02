@@ -1,0 +1,21 @@
+/* pages/messageCenter/messageCenter.wxss */
+.none_msg_wrap {
+  margin-top: 384rpx;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height:100%;
+}
+.icon_none_msg{
+  width: 88rpx;
+  height: 88rpx;
+}
+image{
+  display: inline-block;
+  overflow: hidden;
+}
+.none_msg_text {
+  font-size:28rpx;
+  margin-top:25rpx;
+}

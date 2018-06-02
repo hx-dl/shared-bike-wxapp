@@ -1,0 +1,16 @@
+<!--pages/login/login.wxml-->
+<view class='login-phone'>
+  <view class='title'>登录</view>
+  <view class='input-wrapper'>
+    <view class='phone-input'>
+      <input class='input' placeholder='请输入手机号' type='number'></input>
+      <view class='close mfic mfic-wrong'></view>
+    </view>
+  </view>
+  <view class='btn-wrapper'>
+    <view class='mf-btn disable'>下一步</view>
+  </view>
+  <view class='warning'>
+    <view class='warning-title'>请输入正确的手机号</view>
+  </view>
+</view>

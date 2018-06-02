@@ -1,0 +1,20 @@
+{
+  "pages":[
+    "pages/init/init",
+    "pages/test/test",
+    "pages/messageCenter/messageCenter",
+    "pages/login/login",
+    "pages/userCenter/userCenter",
+    "pages/record/record",
+    "pages/coupon/coupon",
+    "pages/ridingcard/ridingcard"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "仿青桔单车",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#f3f3f3",
+    "enablePullDownRefresh": false
+  }
+}

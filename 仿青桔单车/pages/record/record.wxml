@@ -1,0 +1,7 @@
+<!--pages/record/record.wxml-->
+<view class='myRecords'>
+  <view class='wrapper'>
+    <image class='no-item_icon' src='/images/no-record.png'></image>
+    <view class='no-item-text'>近期无行程</view>
+  </view>
+</view>

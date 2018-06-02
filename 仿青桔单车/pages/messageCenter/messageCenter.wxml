@@ -1,0 +1,7 @@
+<!--pages/messageCenter/messageCenter.wxml-->
+<view class="msgCenter">
+  <view class="none_msg_wrap">
+    <image class="icon_none_msg" src="/images/icon_none_msg@2x.png"></image>
+    <view class="none_msg_text">暂无消息</view>
+  </view>
+</view>
