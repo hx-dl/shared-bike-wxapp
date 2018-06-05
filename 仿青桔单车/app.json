@@ -4,6 +4,7 @@
     "pages/test/test",
     "pages/messageCenter/messageCenter",
     "pages/login/login",
+    "pages/register/register",
     "pages/userCenter/userCenter",
     "pages/record/record",
     "pages/coupon/coupon",

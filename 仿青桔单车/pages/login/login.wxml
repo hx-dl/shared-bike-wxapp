@@ -1,16 +1,16 @@
 <!--pages/login/login.wxml-->
+<import src="/template/template.wxml" />
+<template is="toast" data="{{txt,isShow,iconClass}}"></template>
+
 <view class='login-phone'>
   <view class='title'>登录</view>
   <view class='input-wrapper'>
     <view class='phone-input'>
-      <input class='input' placeholder='请输入手机号' type='number'></input>
-      <view class='close mfic mfic-wrong'></view>
+      <input class='input' placeholder='请输入手机号' maxlength="13" value='{{inputText}}'bindinput='input'/>
+      <view wx:if="{{inputText!=''}}" class='close mfic clean-input' bindtap='cleanInput'></view>
     </view>
   </view>
   <view class='btn-wrapper'>
-    <view class='mf-btn disable'>下一步</view>
-  </view>
-  <view class='warning'>
-    <view class='warning-title'>请输入正确的手机号</view>
+    <view class='mf-btn {{disable}}' bindtap='{{toNext}}'>下一步</view>
   </view>
 </view>

@@ -6,6 +6,7 @@
 }
 .login-phone .input-wrapper {
   margin-bottom: 28rpx;
+  background: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
 }
 .phone-input {
@@ -26,7 +27,6 @@
   font-size: 36rpx;
   color: #999;
 }
-
 .mfic{
   font-family: mofangicon!important;
   font-style: normal;
@@ -34,19 +34,14 @@
   -webkit-text-stroke-width:.2px;
   -moz-osx-font-smoothing:grayscale;
 }
-
-.clean-input:before {
-    content: "\e618";
-}
-
 input{
-  display: block;
-  height: 1.4rem;
-  text-overflow: clip;
-  overflow: hidden;
-  white-space: nowrap;
-  font-family: UICFontTextStyleBody;
-  min-height: 1.4rem;
+  display:block;
+  height:1.4rem;
+  text-overflow:clip;
+  overflow:hidden;
+  white-space:nowrap;
+  font-family:UICTFontTextStyleBody;
+  min-height:1.4rem;
 }
 
 .login-phone .btn-wrapper {
@@ -76,16 +71,32 @@ box-sizing:border-box;
   background: #ccc;
 }
 
-.warning {
-top:0;
-left:0;
-width:100%;
-height:70rpx;
-line-height:70rpx;
-text-align:center;
-background:#e64340;
-opacity:0;
-transition:all 0.3s;
+.input-wrapper .sms-input .sms-btn {
+  position:absolute;
+  right:52rpx;
+  top:26rpx;
+}
+
+.input-wrapper .sms-input {
+  position:relative;
+  height:48rpx;
+  padding:32rpx 22rpx;
+  margin:0 20rpx;
+  background:#fff;
+  border-top:1px solid #ebebeb;
+}
+
+.mf-btn.inline {
+  width:auto;
+  display:inline-block;
+  padding:9px 10px;
+  line-height:12px;
+  font-size:12px;
+}
+.sms-input .input {
+  margin-right:240rpx;
+  font-size:16px;
+  color:#333;
 }
 
 

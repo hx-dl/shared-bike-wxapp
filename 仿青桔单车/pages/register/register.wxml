@@ -1,0 +1,24 @@
+<!--pages/login/login.wxml-->
+<import src="/template/template.wxml" />
+<template is="toast" data="{{txt,isShow,iconClass}}"></template>
+
+<view class='login-phone'>
+  <view class='title'>登录</view>
+  <view class='input-wrapper'>
+    <view class='phone-input'>
+      <input class='input' placeholder='请输入手机号' maxlength="13" value='{{inputText}}' bindinput='input'/>
+      <view class='input-clean'></view>
+    </view>
+    <view class='sms-input'>
+      <input class='input' maxlength='4' placeholder='请输入验证码' type='number' bindinput='input'/>
+      <view class="sms-btn">
+        <view class="mf-btn inline" bindtap="handleClick">
+        {{showTime?time:''}}{{btnText}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='btn-wrapper'>
+    <view class='mf-btn {{disable}}' bindtap='{{toNext}}'>下一步</view>
+  </view>
+</view>

@@ -59,7 +59,6 @@ cover-image,cover-view{
   padding-left: 20rpx;
   font-size: 28rpx;
   color: #666;
-  box-shadow: 0 4rpx 16rpx 0 rgba(43,43,43,.12);
 }
 .top-icon{
   position:static;
@@ -73,21 +72,6 @@ cover-image,cover-view{
   flex: 1;
 }
 
-
-.map-center_text{
-  text-align:center;
-  line-height:60rpx;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%); 
-  margin-top:-115rpx; 
-  width:180rpx;
-  height:60rpx;
-  background:#7e7e7e;
-  border-radius:30rpx;
-  color:#fff;
-  font-size:28rpx;
-}
 .map-icon_point{
   position:absolute;
   left:50%;

@@ -1,0 +1,10 @@
+<template name="toast">
+     <view class='toast-out' wx:if='{{isShow}}'>　　　　
+         <view class='toast-in'>　　　　　　
+             <span  class='iconfont {{iconClass}}'></span>      
+             <view class='toast-txt'>
+                 {{txt}}　　　　　　　　　
+             </view>
+         </view>
+     </view>
+</template>
