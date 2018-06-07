@@ -1,6 +1,6 @@
 <!--pages/homepage/index.wxml-->
 <view class='map-box'>
-  <map id='myMap' latitude='{{latitude}}' longitude='{{longitude}}' markers='{{markers}}' controls='{{controls}}' scale='{{scale}}' bindcontroltap='controltap' bindregionchange='regionchange' show-location>
+  <map id='myMap' latitude='{{latitude}}' longitude='{{longitude}}' markers='{{markers}}' scale='{{scale}}' bindcontroltap='controltap' bindregionchange='regionchange' show-location>
 
       <cover-image class='map-shadow-top' src='/images/map-shadow-top.png'/>
       <cover-image class='map-shadow-btm' src='/images/map-shadow-btm.png'/>

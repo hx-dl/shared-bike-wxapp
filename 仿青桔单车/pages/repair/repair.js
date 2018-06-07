@@ -1,4 +1,4 @@
-// pages/ridingcard/ridingcard.js
+// pages/repair/repair.js
 Page({
 
   /**

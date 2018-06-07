@@ -1,20 +1,21 @@
 {
-  "pages":[
+  "pages": [
     "pages/init/init",
-    "pages/test/test",
+    "pages/repair/repair",
+    "pages/end/end",
+    "pages/unlock/unlock",
+    "pages/charge/charge",
     "pages/messageCenter/messageCenter",
     "pages/login/login",
-    "pages/register/register",
     "pages/userCenter/userCenter",
     "pages/record/record",
-    "pages/coupon/coupon",
-    "pages/ridingcard/ridingcard"
+    "pages/test/test"
   ],
-  "window":{
-    "backgroundTextStyle":"dark",
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "仿青桔单车",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle": "black",
     "backgroundColor": "#f3f3f3",
     "enablePullDownRefresh": false
   }

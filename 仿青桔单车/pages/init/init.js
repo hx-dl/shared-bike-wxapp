@@ -1,9 +1,7 @@
 // pages/homepage/index.js
-
 import { BICYCLE } from '../../config/api';
 
 const app = getApp();
-
 Page({
   data: {
     longitude: 116.397390,
@@ -18,31 +16,32 @@ Page({
   onLoad: function (options) {
     //获取位置信息
     wx.getLocation({
+      type: 'gcj02',
       success: (res) => {
-        console.log(res)
         let longitude = res.longitude;
         let latitude = res.latitude;
         this.setData({
           longitude,
           latitude
         }) 
-        //模拟请求单车
-        // wx.request({
-        //   url: BICYCLE,
-        //   method:'GET',
-
-        // })
-        //模拟数据请求
+        //模拟请求单车数据
         wx.showLoading({
           title: '加载中',
         })
         //调用随机函数生成假单车
         setTimeout(()=>{
-          this.tocreate(res)
+          wx.request({
+            url: BICYCLE,
+            success:(res)=>{
+              console.log(res);
+              this.setData({
+                markers:res.data
+              })
+            }
+          })
           this.nearestBic(res)
           wx.hideLoading();
         },1000)
-        
       }
     })
   },
@@ -52,7 +51,12 @@ Page({
     // console.log(this.mapCtx);
   },
   onHide: function () {
-    wx.clearStorage();
+    wx.removeStorage({
+      key: 'bicycle',
+      success:  (res) => {
+        console.log('模拟单车数据已清除')
+      }
+    })
   },
   //复位按钮  已完成
   toReset(){
@@ -63,12 +67,10 @@ Page({
         scale: 17
       })
     },1000)
-    this.mapCtx.moveToLocation();
   }, 
-
   // 跳转到个人中心
   toUser(){
-    if (!app.globalData.logStatus){
+    if (!app.globalData.loginStatus){
       wx.showModal({
         title: '提示',
         content: '请先登录',
@@ -94,7 +96,7 @@ Page({
   },
   // 扫码开锁
   toScan(){
-    if (!app.globalData.logStatus) {
+    if (!app.globalData.loginStatus) {
       wx.showModal({
         title: '提示',
         content: '请先登录',
@@ -110,7 +112,10 @@ Page({
       wx.scanCode({
         success: (res) => {
           onlyFromCamera: false,
-            console.log(res);
+          console.log('扫码成功');
+          wx.navigateTo({
+            url: '/pages/unlock/unlock',
+          })
         }
       })
     }
@@ -133,12 +138,10 @@ Page({
     if (e.type == 'end') {
       this.mapCtx.getCenterLocation({
         success: (res) => {
-          console.log(this.data.lastLongitude, this.data.lastLatitude)
-          console.log(res.longitude, res.latitude)
           let lon_distance = res.longitude - this.data.lastLongitude;
           let lat_distance = res.latitude - this.data.lastLatitude;
           // console.log(lon_distance,lat_distance)
-          // 判断屏幕移动距离，刷新单车
+          // 判断屏幕移动距离，如果设定的阈值，模拟刷新单车
           if (Math.abs(lon_distance) >= 0.0025 || Math.abs(lat_distance) >= 0.0022){
             console.log('刷新单车')
             this.setData({
@@ -198,7 +201,7 @@ Page({
     })
   },
 
-  // 自动判断距离最近的单车
+  // 自动判断距离最近的单车的方法
   nearestBic(res){
     // 找出最近的单车
     let markers = this.data.markers;
@@ -213,7 +216,6 @@ Page({
       let distance = t;
       // 将每一次计算的距离加入数组 distanceArr
       distanceArr.push(distance)
-      
     }
     //从距离数组中找出最小值，js是弱类型，数字不能直接比较大小。需要进行转换用 parseFloat（小数）  | parseInt（整数）
     let min = distanceArr[0];
@@ -223,18 +225,18 @@ Page({
         min_index = i;
       }
     }
-    console.log(distanceArr)
-    console.log(min_index)
+    // console.log(distanceArr)
+    // console.log(min_index)
     let callout = "markers[" + min_index + "].callout";
     // 清楚旧的气泡，设置新气泡
     wx.getStorage({
       key: 'bicycle',
       success: (res) => {
-        console.log(res)
+        // console.log(res)
         this.setData({
           markers:res.data,
           [callout]: {
-            "content": '我最近，选我',
+            "content": '离我最近',
             "color": "#ffffff",
             "fontSize": "16",
             "borderRadius": "50",

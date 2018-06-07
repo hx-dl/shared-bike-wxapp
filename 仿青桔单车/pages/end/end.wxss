@@ -1,0 +1,78 @@
+/* pages/charge/charge.wxss */
+page{
+  background: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.price {
+  margin-top: 100rpx;
+  width: 550rpx;
+  display: flex;
+  flex-direction: column; 
+  border-bottom: 1rpx solid #ccc;
+}
+.price-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #aaa;
+}
+.coupon-info{
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: orange;
+  margin: 10rpx 0 40rpx 0;
+}
+.pay-ways{
+  width: 550rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.pay-ways .pay-icon{
+  width: 30rpx;
+  height: 30rpx;
+}
+.pay-ways .pay-text{
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAAllBMVEUAAAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAAyAAE7ByDAAAAMXRSTlMA8PrslSoQDAXg1LmlizcVCfWvq4NwVh3j3MZ7dGpZSTsuvp1EGgH2zqFiVCQgsZqNccV/kQAAAWJJREFUOMvN0teSgkAQBdA7ZJC0BFEJgjltmP//uQVHcQAJT1t7nujiVg9MN/6IK+e7nS27GCYn3oI+6F4oo4cSGrTFCBV0qQGhb5BYRct6QXss1uBpEh0gadzhMzpo5tY9N3TE7NnXpGO+PlnyMhb0CzCOOJgTTBnAYa4AsAaD2xtK9ooGgEoGgtL9G6PqZ4iLrDf48bNnYzzeyyu29SuxGbQclLT0OcYtTvVp+4zUQRI4bN6vDTrh1StAtHn0jxW2k/wURQj18zHCISlLMVHZLUoC5YErTQDFJmQDd2PS+kvoXGXj6ZDptGUJj6tWqLAr7/CQ8OUV9ZV3xIgah2iAYgn0nRvQWOtQS8WelQWQU45o0B45Smc6gYmKshxP6gruZDKWJEV9jeJIMkdNXg6eXoCjrPqTnoMGqbflHJgUNS4apkQNywbTjX748/0utc6+/22lawfvSVVOxRRZmfvvfgFP6r79dLXztgAAAABJRU5ErkJggg==);
+  background-repeat: no-repeat;
+  background-size:30rpx;
+  background-position-y: 8rpx;
+  font-size: 28rpx;
+  padding-left:45rpx;
+  color:  #aaa;
+  margin: 40rpx 0;
+}
+.charge{
+  text-align: right;
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+.charge text{
+  font-size: 60rpx;
+  color: #333;
+}
+.payment{
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin: 60rpx auto;
+  font-size: 30rpx;
+  color: #666;
+}
+.payment .final-payment{
+  font-size: 60rpx;
+}
+.pay-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin: 350rpx 0 0 0;
+  font-size: 30rpx;
+  color: #fff;
+  background:#4a4c5b;
+  border-radius:4rpx;
+  padding: 20rpx;
+}

@@ -1,7 +1,19 @@
-<!-- map.wxml -->
-<map id="myMap" show-location />
+<view class='status-header'>
+  <image class='loading-icon' src='/images/unlock_loading.png' wx:if='{{loading}}'></image>
+  <image class='success-icon' src='/images/success.png' wx:else></image>
+  <text class='loading-text'>开锁中</text>
+</view>
+<view class='map-wrap'>
+  <map>
+    <cover-image class='map-shadow-top' src='/images/map-shadow-top.png'/>
+    <cover-image class='map-shadow-btm' src='/images/map-shadow-btm.png'/>
+  </map>
+</view>
+<view class='foot-btn'>
+  <view class='repair'>
+    <image class='repair-icon' src='/images/repair.png'></image>
+    <text class='repair-text'>车辆报修</text>
+  </view>
+</view> 
 
-<button type="primary" bindtap="getCenterLocation">获取位置</button>
-<button type="primary" bindtap="moveToLocation">移动位置</button>
-<button type="primary" bindtap="translateMarker">移动标注</button>
-<button type="primary" bindtap="includePoints">缩放视野展示所有经纬度</button>
+
