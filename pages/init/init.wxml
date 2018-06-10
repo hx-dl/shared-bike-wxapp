@@ -1,0 +1,23 @@
+<!--pages/homepage/index.wxml-->
+<view class='map-box'>
+  <map id='myMap' latitude='{{latitude}}' longitude='{{longitude}}' markers='{{markers}}' polyline='{{polyline}}' scale='{{scale}}' bindcontroltap='controltap' bindregionchange='regionchange' bindmarkertap='toVisit' show-location>
+      <!-- 地图上下阴影 -->
+      <cover-image class='map-shadow-top' src='/images/map-shadow-top.png'/>
+      <cover-image class='map-shadow-btm' src='/images/map-shadow-btm.png'/>
+      <!-- 顶部横幅 -->
+      <cover-view class='top-tips'>
+        <cover-image class='top-icon' src='/images/top-tip.png'/>
+        <cover-view class='top-text'>{{topText}}</cover-view>
+      </cover-view>
+      <!-- 中心坐标 -->
+      <cover-image class='map-icon_point' src='/images/point_in_map.png'/>
+      <!-- 控件 -->
+      <cover-image class='map-icon map-icon_msg' src='/images/icon-msg.png' bindtap='toMsg'/>
+      <cover-image class='map-icon map-icon_user' src='/images/icon-user.png' bindtap='toUser'/>
+      <cover-image class='map-icon map-icon_reset' src='/images/reset.png' bindtap='toReset'/>
+  </map>
+</view>
+<view class='main-btn' bindtap='toScan'>
+  <text class='main-text'>扫码解锁</text>
+</view>
+

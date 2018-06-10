@@ -1,0 +1,20 @@
+/* pages/record/record.wxss */
+.myRecords{
+  padding: 0 20rpx;
+}
+.myRecords .wrapper {
+  padding-top: 332rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.myRecords .wrapper .no-item_icon{
+  width: 252rpx;
+  height: 252rpx;
+}
+.myRecords .wrapper .no-item-text{
+  font-size: 28rpx;
+  color:#666;
+  margin-top: 26rpx;
+}

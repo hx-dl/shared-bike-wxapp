@@ -1,0 +1,26 @@
+/**app.wxss**/
+@font-face {
+    font-family: mofangicon;
+    src: url(https://webapp.didistatic.com/static/webapp/shield/mofang5icon-v9.woff) format('woff'),url(https://webapp.didistatic.com/static/webapp/shield/mofang5icon-v9.ttf) format('truetype'),url(https://webapp.didistatic.com/static/webapp/shield/mofang5icon-v9.svg#mofangicon) format('svg');
+}
+
+page{
+  line-height:1.6;
+  font-family:-apple-system-font,Helvetica Neue,sans-serif;
+  background: #f3f4f5;
+  width: 100%;
+  height: 100%;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+.clean-input:before {
+    content: "\e618";
+}

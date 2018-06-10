@@ -1,0 +1,51 @@
+/* pages/charge/charge.wxss */
+page{
+  background: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.price {
+  margin-top: 100rpx;
+  width: 550rpx;
+  display: flex;
+  flex-direction: column; 
+  border-bottom: 1rpx solid #ccc;
+}
+.price-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #aaa;
+}
+.time-info{
+  display: flex;
+  justify-content: space-between;
+  font-size: 20rpx;
+  color: #ccc;
+  margin: 10rpx 0 40rpx 0;
+}
+
+.charge{
+  text-align: right;
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+.charge text{
+  font-size: 60rpx;
+  color: #333;
+}
+.rule{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 200rpx;
+  height: 80rpx;
+  border: 1rpx solid #eee;
+  border-radius: 5rpx;
+  font-size: 30rpx;
+  color: #aaa;
+}

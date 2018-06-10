@@ -1,0 +1,23 @@
+<view container>
+  <view class='price'>
+    <view class='price-info'>
+      <text class='price-left'>本次行程总计</text>
+      <text class='price-right'>{{price}}元</text>
+    </view>
+    <view class='coupon-info'>
+      <text>优惠卷抵扣</text>
+      <text>-{{coupon}}元</text>
+    </view>
+  </view>
+  <view class='pay-ways'>
+    <view class='pay-text'>微信支付</view> 
+  </view>
+  <view class='payment'>
+    <text>实际支付<text class='final-payment'>{{price-coupon}}</text>元</text> 
+  </view>
+
+
+  <view class='pay-btn' bindtap='toPay'>
+    <text>确定支付<text>{{price-coupon}}</text>元</text>
+  </view>
+</view>

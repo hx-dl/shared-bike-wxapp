@@ -1,0 +1,97 @@
+/* pages/homepage/index.wxss */
+page{
+  height:100vh; 
+  display: flex;
+  flex-direction: column;
+}
+.map-box{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#myMap{
+  width: 100%;
+  height: 100%;
+}
+.main-btn{
+  background:#fff;
+  padding:20rpx;
+}
+.main-text{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  height:100rpx;
+  margin:0 auto;
+  color:#fff;
+  background:#4a4c5b;
+  font-size:32rpx;
+  border-radius:4rpx;
+}
+cover-image,cover-view{
+   position: absolute;
+}
+/* 地图阴影 */
+.map-shadow-top {
+  width: 100%;
+  height: 10rpx;
+  top: 0;
+}
+.map-shadow-btm {
+  width: 100%;
+  height: 10rpx;
+  bottom: 0;
+}
+/* 地图控件 */
+.top-tips{
+  position: absolute; 
+  width: 710rpx;
+  height: 108rpx;
+  left: 50%;
+  z-index: 99;
+  transform: translateX(-50%);
+  top: 12rpx;
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  align-items: center;
+  padding-left: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+.top-icon{
+  position:static;
+  width: 74rpx;
+  height: 74rpx;
+  margin-right: 24rpx;
+  border-radius: 50%;
+}
+.top-text{
+  position:static;
+  flex: 1;
+}
+
+.map-icon_point{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  margin-top:-40rpx;
+  width:52rpx;
+  height:75rpx;
+}
+.map-icon{
+  right:20rpx;
+  width:76rpx;
+  height:76rpx;
+}
+.map-icon_msg{
+  bottom: 242rpx;
+}
+.map-icon_user{
+  bottom: 142rpx;
+}
+.map-icon_reset{
+  bottom: 42rpx;
+}
