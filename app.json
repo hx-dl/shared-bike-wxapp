@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/init/init",
+    "pages/repair/repair",
+    "pages/pay/pay",
+    "pages/unlock/unlock",
+    "pages/charge/charge",
+    "pages/messageCenter/messageCenter",
+    "pages/login/login",
+    "pages/userCenter/userCenter",
+    "pages/record/record"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "改良版青桔单车",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f3f3f3",
+    "enablePullDownRefresh": false
+  }
+}

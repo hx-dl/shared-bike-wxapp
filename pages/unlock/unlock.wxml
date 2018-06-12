@@ -1,0 +1,38 @@
+<view class='status-header' wx:if='{{loading}}'>
+  <image class='loading-icon' src='/images/unlock_loading.png' wx:if='{{loading}}'></image>
+  <image class='success-icon' src='/images/success.png' wx:else></image>
+  <text class='loading-text'>{{status}}</text>
+</view>
+<view class='status-header' wx:else>
+  <view class="tp-text">请将车辆停至共享单车停车区</view>
+  <view class="btm-text">已为您本次出行购买了用车保险 </view>
+</view>
+<view class='notice' wx:if='{{loading == false}}'>
+  <view class='notice-left'>
+    <view>骑行<text class='riding-text'>{{distance}}</text>公里</view>
+    <view>骑行时间<text class='riding-text'>{{minute}}</text>分钟<text class='riding-text'>{{second}}</text>秒</view>
+  </view>
+  <view class='notice-right' bindtap='charge'>
+    <text class='bill-text'>{{cost}}</text>元
+    <image class='icon-right'src='/images/arrow-right.png'></image>
+  </view>
+</view>
+<view class='map-wrap'>
+  <map id='myMap' latitude='{{latitude}}' longitude='{{longitude}}' markers='{{markers}}' scale='{{scale}}'  polyline='{{polyline}}' show-location>
+    <cover-image class='map-shadow-top' src='/images/map-shadow-top.png'/>
+    <cover-image class='map-shadow-btm' src='/images/map-shadow-btm.png'/>
+    <cover-image class='map-reset' src='/images/reset.png' bindtap='toReset'/>
+  </map>
+</view>
+<view class='foot-btn'>
+  <view class='repair' bindtap='toRepair'>
+    <image class='repair-icon' src='/images/repair.png'></image>
+    <text class='repair-text'>车辆报修</text>
+  </view>
+  <view class='toLock' wx:if='{{loading == false}}' bindtap='toLock'>
+    <image class='toLock-icon' src='/images/i.png'/>
+    <text class='toLock-text'>结束行程</text>
+  </view>
+</view> 
+
+

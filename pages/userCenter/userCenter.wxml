@@ -1,0 +1,44 @@
+<view class='userCenter'>
+  <view class="userInfo">
+      <image class='user-head' src='{{userInfo.avatarUrl}}'/>
+      <view class='user-name'>{{userInfo.nickName}}</view>
+      <view class='user-phone'>{{phone}}</view>
+  </view>
+
+  <view class='other-info-list'>
+
+    <navigator url='/pages/record/record' class='list-item'>
+      <image class='left' src='/images/stroke.png'></image>
+      <view class='text-list'>
+        <view class='text-hd'>行程</view>
+        <view class='text-bd'>最近三个月骑行<text class='oColor'>{{0}}</text></view>
+      </view>
+      <image class='right' src='/images/arrow-right.png'></image>
+    </navigator>
+
+    <view url=' ' class='list-item' bindtap='unfinished'>
+      <image class='left' src='/images/coupon.png'></image>
+      <view class='text-list'>
+        <view class='text-hd'>优惠卷</view>
+        <view class='text-bd'>展示您的优惠卷</view>
+      </view>
+      <image class='right' src='/images/arrow-right.png'></image>
+    </view>
+
+    <view class='list-item' bindtap='unfinished'>
+      <image class='left' src='/images/ridingCard.png'></image>
+      <view class='text-list'>
+        <view class='text-hd'>单车月卡</view>
+        <view class='text-bd'><text class='oColor'>{{0}}</text>天可用单车月卡</view>
+      </view>
+      <image class='right' src='/images/arrow-right.png'></image>
+    </view>
+
+  </view>
+
+  <view class='layout-btn' bindtap='logout'>退出登录</view>
+</view>
+
+<view class='fix-footer'>
+  <text>仿青桔单车 by 行无忌</text>
+</view>

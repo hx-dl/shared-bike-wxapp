@@ -1,0 +1,21 @@
+<!--pages/login/login.wxml-->
+<view class='login-phone'>
+  <view class='title'>登录</view>
+  <view class='input-wrapper'>
+    <view class='phone-input'>
+      <input class='input' placeholder='请输入手机号' maxlength="13" value='{{phoneText}}' bindinput='input' focus='true'/>
+      <view wx:if='{{phoneText!=0}}' class='close clean-input'bindtap='cleanInput'></view>
+    </view>
+    <view class='sms-input' wx:if='{{show}}'>
+      <input class='input' maxlength='4' placeholder='请输入验证码' type='number' value='{{smsText}}' bindinput='smsinput' focus='true'/>
+      <view class="sms-btn">
+        <view class="mf-btn inline {{sms_disable}}" bindtap="{{handleClick}}">
+        {{showTime?time:''}}{{btnText}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='btn-wrapper'>
+    <button class='mf-btn {{btn_disable}}' bindgetuserinfo='{{toNext}}' open-type='getUserInfo'>下一步</button>
+  </view>
+</view>
