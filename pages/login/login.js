@@ -1,6 +1,5 @@
 // pages/register/register.js
 const app = getApp();
-let utils = app.utils;
 
 Page({
   data: {
@@ -108,10 +107,6 @@ Page({
         }
       })
     } else {
-      wx.setStorage({
-        key: "phone",
-        data: phoneNumber
-      })
       this.setData({
         sms_disable: 'disable',
         handleClick: '',
@@ -162,7 +157,9 @@ Page({
     }else{
       wx.setStorage({
         key: "loginStatus",
-        data: 1
+        data: 1,
+        key: "phone",
+        data: phoneNumber
       })
       app.globalData.loginStatus = 1;
       console.log(app.globalData.loginStatus)

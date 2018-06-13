@@ -42,6 +42,7 @@ Page({
                 data: res.data.data.markers
               })
               this.setData({
+                markers: [],
                 markers: res.data.data.markers
               })
               this.mapCtx.getCenterLocation({
@@ -170,11 +171,8 @@ Page({
       success: (res) => {
         this.nearestBic(res)
       }
-    })
-    
-    
+    }) 
   },
-
   //随机函数，根据所在地  模拟单车经纬度数据伪造单车
   tocreate(res) {
     // 随机单车数量设置
@@ -207,14 +205,10 @@ Page({
     }
     // console.log(markers)
     //将模拟的单车数据暂时存储到本地
-    wx.setStorage({
-      key: 'bicycle',
-      data: markers
-    })
+    wx.setStorageSync('bicycle', markers);
     this.setData({
       markers
     })
-    
   },
   // 自动判断距离最近的单车的方法
   nearestBic(res) {
@@ -222,11 +216,10 @@ Page({
     let markers = this.data.markers;
     let min_index = 0;
     let distanceArr = [];
-
     for (let i = 0; i < markers.length; i++) {
       let lon = markers[i].longitude;
       let lat = markers[i].latitude;
-      // 计算距离  sqrt(（x1-x2）^2 + (y1-y2)^2 )
+      // 计算距离
       let t = Math.sqrt((lon - res.longitude) * (lon - res.longitude) + (lat - res.latitude) * (lat - res.latitude));
       let distance = t;
       // 将每一次计算的距离加入数组 distanceArr
@@ -242,12 +235,11 @@ Page({
     }
     // console.log(distanceArr)
     // console.log(min_index)
-    let callout = "markers[" + min_index + "].callout";
+    let callout = `markers[${min_index}].callout`;
     // 清楚旧的气泡，设置新气泡
     wx.getStorage({
       key: 'bicycle',
       success: (res) => {
-        // console.log(res)
         this.setData({
           markers: res.data,
           [callout]: {
@@ -310,6 +302,5 @@ Page({
         })
       }
     })
-    
   }
 })
