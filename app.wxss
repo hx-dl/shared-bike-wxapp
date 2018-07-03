@@ -1,8 +1,8 @@
 /**app.wxss**/
-@font-face {
+ @font-face {
     font-family: mofangicon;
     src: url(https://webapp.didistatic.com/static/webapp/shield/mofang5icon-v9.woff) format('woff'),url(https://webapp.didistatic.com/static/webapp/shield/mofang5icon-v9.ttf) format('truetype'),url(https://webapp.didistatic.com/static/webapp/shield/mofang5icon-v9.svg#mofangicon) format('svg');
-}
+} 
 
 page{
   line-height:1.6;
