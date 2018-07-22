@@ -1,5 +1,5 @@
 // pages/homepage/index.js
-import { BICYCLE } from '../../config/api';
+// import { BICYCLE } from '../../config/api';
 var amapFile = require('../../libs/amap-wx.js');
 var myAmapFun = new amapFile.AMapWX({ key: '3ceda24f073cb81026899a937b3c7422' });
 
@@ -17,7 +17,10 @@ Page({
     distanceArr:[]
   },
   /*生命周期函数--监听页面加载*/
-  onLoad: function (options) { 
+  onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     //获取位置信息
     wx.getLocation({
       type: 'gcj02',
@@ -29,31 +32,15 @@ Page({
           latitude
         })
         //模拟请求单车数据
-        wx.showLoading({
-          title: '加载中',
-        })
-        setTimeout(()=>{
-          wx.request({
-            url: BICYCLE,
-            method:'GET',
-            success:(res)=>{
-              wx.setStorage({
-                key: 'bicycle',
-                data: res.data.data.markers
-              })
-              this.setData({
-                markers: [],
-                markers: res.data.data.markers
-              })
-              this.mapCtx.getCenterLocation({
-                type: 'gcj02',
-                success: (res) => {
-                  this.nearestBic(res)
-                }
-              })
-              wx.hideLoading();
+        setTimeout(() => {
+          this.tocreate(res)
+          this.mapCtx.getCenterLocation({
+            type: 'gcj02',
+            success: (res) => {
+              this.nearestBic(res)
             }
           })
+          wx.hideLoading();
         },1000)
       }
     })
@@ -72,13 +59,20 @@ Page({
   },
   //复位按钮  已完成
   toReset(){
+    console.log('重置定位')
     //调回缩放比，提升体验
-    setTimeout(()=>{
-      this.setData({
-        scale: 18
-      })
-    },1000)
-    this.mapCtx.moveToLocation();
+    var promise = new Promise((resolve) =>{
+      this.mapCtx.moveToLocation();
+      resolve('调回缩放比')
+    })
+    promise.then((value)=>{
+      setTimeout(() => {
+        this.setData({
+          scale: 18
+        })
+      }, 1000)
+    })
+    
   }, 
   // 跳转到个人中心
   toUser(){
