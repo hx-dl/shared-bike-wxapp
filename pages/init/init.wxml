@@ -7,7 +7,7 @@
       <!-- 顶部横幅 -->
       <cover-view class='top-tips'>
         <cover-image class='top-icon' src='/images/top-tip.png'/>
-        <cover-view class='top-text'>{{topText}}</cover-view>
+        <cover-view class='top-text'>单车小程序</cover-view>
       </cover-view>
       <!-- 中心坐标 -->
       <cover-image class='map-icon_point' src='/images/point_in_map.png'/>

@@ -20,7 +20,6 @@ page{
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
-
 .clean-input:before {
     content: "\e618";
 }

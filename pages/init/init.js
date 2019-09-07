@@ -1,23 +1,29 @@
 // pages/homepage/index.js
 // import { BICYCLE } from '../../config/api';
 var amapFile = require('../../libs/amap-wx.js');
-var myAmapFun = new amapFile.AMapWX({ key: '3ceda24f073cb81026899a937b3c7422' });
+var myAmapFun = new amapFile.AMapWX({
+  key: '3ceda24f073cb81026899a937b3c7422'
+});
 
 const app = getApp();
 Page({
   data: {
+    //当前经纬度对
     longitude: 116.397390,
     latitude: 39.908860,
+    //单车数组
     markers: [],
-    topText:'🍊单车改良版 by 行无忌',
+    //缩放比
     scale: 18,
-    lastLongitude:0,
+    // 记录上一次的经纬度
+    lastLongitude: 0,
     lastLatitude: 0,
+    //绘制线路的数组
     polyline: [],
-    distanceArr:[]
+    distanceArr: []
   },
   /*生命周期函数--监听页面加载*/
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.showLoading({
       title: '加载中',
     })
@@ -30,18 +36,18 @@ Page({
         this.setData({
           longitude,
           latitude
-        })
-        //模拟请求单车数据
-        setTimeout(() => {
-          this.tocreate(res)
+        }, () => {
+          this.tocreate(res) //生成随机单车
           this.mapCtx.getCenterLocation({
             type: 'gcj02',
             success: (res) => {
+              //计算最近的单车
               this.nearestBic(res)
             }
           })
-          wx.hideLoading();
-        },1000)
+          wx.hideLoading(); //隐藏loading
+        })
+
       }
     })
   },
@@ -49,35 +55,25 @@ Page({
     // 创建map上下文  保存map信息的对象
     this.mapCtx = wx.createMapContext('myMap');
   },
-  onHide: function () {
+  onHide: function() {
+    //清除单车数据
     wx.removeStorage({
-      key: 'bicycle',
-      success:  (res) => {
-        console.log('模拟单车数据已清除')
-      }
+      key: 'bicycle'
     })
   },
   //复位按钮  已完成
-  toReset(){
-    console.log('重置定位')
-    //调回缩放比，提升体验
-    var promise = new Promise((resolve) =>{
-      this.mapCtx.moveToLocation();
-      resolve('调回缩放比')
+  toReset() {
+    //复位后调整缩放比，提升体验
+    this.mapCtx.moveToLocation();
+    this.setData({
+      scale: 18
     })
-    promise.then((value)=>{
-      setTimeout(() => {
-        this.setData({
-          scale: 18
-        })
-      }, 1000)
-    })
-    
-  }, 
+  },
   // 跳转到个人中心
-  toUser(){
-    if (!app.globalData.loginStatus){
-      wx.showModal({
+  toUser() {
+    //模拟鉴权
+    if (!app.globalData.loginStatus) {
+      return wx.showModal({
         title: '提示',
         content: '请先登录',
         success: (res) => {
@@ -88,22 +84,22 @@ Page({
           }
         }
       })
-    }else{
-      wx.navigateTo({
-        url: '/pages/userCenter/userCenter',
-      })
     }
+    //若为模拟登录状态直接跳转
+    return wx.navigateTo({
+      url: '/pages/userCenter/userCenter',
+    })
   },
-  // 跳转到消息  已完成
+  // 跳转到消息
   toMsg() {
     wx.navigateTo({
       url: '/pages/messageCenter/messageCenter',
     })
   },
   // 扫码开锁
-  toScan(){
+  toScan() {
     if (!app.globalData.loginStatus) {
-      wx.showModal({
+      return wx.showModal({
         title: '提示',
         content: '请先登录',
         success: (res) => {
@@ -114,43 +110,34 @@ Page({
           }
         }
       })
-    } else {
-      wx.scanCode({
-        success: (res) => {
-          onlyFromCamera: false,
-          console.log('扫码成功');
-          wx.navigateTo({
-            url: '/pages/unlock/unlock',
-          })
-        }
-      })
     }
+    return wx.scanCode({
+      success: (res) => {
+        onlyFromCamera: false,
+        console.log('扫码成功');
+        wx.navigateTo({
+          url: '/pages/unlock/unlock',
+        })
+      }
+    })
   },
-  regionchange(e){ 
-    // 拿到起点经纬度
-    if(e.type == 'begin') {
-      this.mapCtx.getCenterLocation({
-        type: 'gcj02',
-        success: (res) => {
+  regionchange(e) {
+    this.mapCtx.getCenterLocation({
+      type: 'gcj02',
+      success: (res) => {
+        if (e.type == 'begin') {
+          // 拿到起点经纬度
           this.setData({
             lastLongitude: res.longitude,
             lastLatitude: res.latitude,
-            polyline:[]
+            polyline: []
           })
-        }
-      })
-    }
-    // 拿到当前经纬度
-    if (e.type == 'end') {
-      this.mapCtx.getCenterLocation({
-        type: 'gcj02',
-        success: (res) => {
+        } else {
+          // 拿到当前经纬度
           let lon_distance = res.longitude - this.data.lastLongitude;
           let lat_distance = res.latitude - this.data.lastLatitude;
-          // console.log(lon_distance,lat_distance)
           // 判断屏幕移动距离，如果超过设定的阈值，模拟刷新单车
-          if (Math.abs(lon_distance) >= 0.0035 || Math.abs(lat_distance) >= 0.0022){
-            console.log('刷新单车')
+          if (Math.abs(lon_distance) >= 0.005 || Math.abs(lat_distance) >= 0.001) {
             this.setData({
               // 清空
               markers: []
@@ -158,29 +145,21 @@ Page({
             this.tocreate(res)
           }
         }
-      })
-    }
-    this.mapCtx.getCenterLocation({
-      type: 'gcj02',
-      success: (res) => {
         this.nearestBic(res)
       }
-    }) 
+    })
   },
   //随机函数，根据所在地  模拟单车经纬度数据伪造单车
   tocreate(res) {
     // 随机单车数量设置
     let markers = this.data.markers;
-    console.log(markers)
-    let ran = Math.ceil(Math.random() * 20);
-    // console.log(ran);
-    for(let i = 0; i < ran; i++) {
+    let ran = Math.ceil(Math.random() * 20 + 5);
+    for (let i = 0; i < ran; i++) {
       // 定义一个临时单车对象
       var t_bic = {
         "id": 0,
-        "title":'去这里',
         "iconPath": "/images/map-bicycle.png",
-        "callout":{},
+        "callout": {},
         "latitude": 0,
         "longitude": 0,
         "width": 52.5,
@@ -249,17 +228,16 @@ Page({
       }
     })
   },
-  toVisit(e){
+  toVisit(e) {
     let bic = e.markerId;
     wx.getStorage({
       key: 'bicycle',
       success: (res) => {
-        console.log(res.data[bic])
         this.route(res.data[bic])
       }
     })
   },
-  route(bic){
+  route(bic) {
     // 获取当前中心经纬度
     this.mapCtx.getCenterLocation({
       success: (res) => {
@@ -286,9 +264,9 @@ Page({
               polyline: [{
                 points: points,
                 color: "#ffffffaa",
-                arrowLine:true,
-                borderColor: "#3CBCA3",
-                borderWidth:2,
+                arrowLine: true,
+                borderColor: "#E5B140",
+                borderWidth: 1,
                 width: 5,
               }]
             });

@@ -1,6 +1,8 @@
 var amapFile = require('../../libs/amap-wx.js');
 // 实例化API核心类
-var myAmapFun = new amapFile.AMapWX({ key: '3ceda24f073cb81026899a937b3c7422' });
+var myAmapFun = new amapFile.AMapWX({
+  key: '3ceda24f073cb81026899a937b3c7422'
+});
 const app = getApp()
 
 Page({
@@ -10,10 +12,10 @@ Page({
     latitude: 0,
     markers: [],
     scale: 16,
-    status:'开锁中',
-    minute:0,
-    second:0,
-    cost:1,
+    status: '开锁中',
+    minute: 0,
+    second: 0,
+    cost: 1,
     distance: 0
   },
   onLoad() {
@@ -21,17 +23,18 @@ Page({
       type: 'gcj02',
       success: (res) => {
         this.setData({
-          longitude:res.longitude,
-          latitude:res.latitude
+          longitude: res.longitude,
+          latitude: res.latitude
+        }, () => {
+          this.riding(res);
+          wx.setStorage({
+            key: 'startpoint',
+            data: res
+          })
         })
-        this.riding(res);
-        wx.setStorage({
-          key: 'startpoint',
-          data: res
-        })
-      } 
-    }) 
-  }, 
+      }
+    })
+  },
   onReady() {
     // 创建map上下文  保存map信息的对象
     this.mapCtx = wx.createMapContext('myMap');
@@ -71,10 +74,10 @@ Page({
         })
       }
     })
-  }, 
-  toRepair(){
+  },
+  toRepair() {
     wx.showToast({
-      icon:'none',
+      icon: 'none',
       title: '待后续完善'
     })
     // wx.navigateTo({
@@ -88,13 +91,13 @@ Page({
       url: '/pages/pay/pay'
     })
   },
-  charge(){
+  charge() {
     wx.navigateTo({
       url: '/pages/charge/charge',
     })
   },
   // 重置骑行中的单车
-  riding(res){
+  riding(res) {
     let longitude = res.longitude;
     let latitude = res.latitude;
     // 初始化骑行中的单车
@@ -136,7 +139,7 @@ Page({
       data: this.cost
     })
   },
-  Time(){
+  Time() {
     let s = 0;
     let m = 0
     // 计时开始
